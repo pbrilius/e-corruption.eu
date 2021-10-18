@@ -1,0 +1,52 @@
+{
+    "name": "pbgroupeu/getnote_eu",
+    "description": "Small scale & footprint web app - projected FP EU framework.",
+    "type": "project",
+    "require": {
+        "elasticsearch/elasticsearch": "~7.0",
+        "doctrine/orm": "3.0.x-dev",
+        "league/container": "@stable",
+        "league/booboo": "@stable",
+        "league/config": "@stable",
+        "league/route": "@stable",
+        "league/uri": "^6.0",
+        "league/uri-components": "2.x-dev",
+        "symfony/cache": "5.4.x-dev",
+        "vlucas/phpdotenv": "5.3.x-dev",
+        "laminas/laminas-diactoros": "2.7.x-dev",
+        "laminas/laminas-httphandlerrunner": "2.1.x-dev",
+        "monolog/monolog": "2.x-dev",
+        "twig/twig": "^3.0",
+        "league/tactician": "@stable",
+        "league/climate": "@stable",
+        "symfony/yaml": "5.4.x-dev",
+        "ghostff/session": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5.x-dev"
+    },
+    "license": "APSL-1.1",
+    "autoload": {
+        "psr-4": {
+            "Pbrilius\\C2cMvcPbgroupeu\\": "src/",
+            "pbgroupeu\\stacer_eu\\": "src/stacer_eu/",
+            "pbgroupeu\\gettingnote_eu\\": "src/gettingnote_eu/",
+            "pbgroupeu\\getnote_eu\\": "src/getnote_eu/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pbrilius\\C2cMvcPbgroupeu\\tests\\": "tests/",
+            "pbgroupeu\\stacer_eu\\tests\\": "tests/stacer_eu",
+            "pbgroupeu\\gettingnote_eu\\tests\\": "tests/gettingnote_eu",
+            "pbgroupeu\\getnote_eu\\tests\\": "tests/getnote_eu/"
+        }
+    },
+    "authors": [
+        {
+            "name": "pbgroupeu",
+            "email": "povilas@pbgroupeu.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

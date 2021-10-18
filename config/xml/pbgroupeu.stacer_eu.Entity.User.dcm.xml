@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="pbgroupeu\stacer_eu\Entity\User" table="user" repository-class="pbgroupeu\stacer_eu\Repository\UserRepository">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="email" type="string" column="email" length="256" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="hash" type="string" column="hash" length="256" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <one-to-one field="credit" target-entity="Loan" mapped-by="lender"/>
+    <one-to-one field="debit" target-entity="Loan" mapped-by="borrower"/>
+    <one-to-one field="payerAudit" target-entity="Audit" mapped-by="payer"/>
+    <one-to-many field="debtRepayments" target-entity="Payment" mapped-by="user"/>
+    <one-to-many field="comments" target-entity="Comment" mapped-by="user"/>
+    <one-to-many field="reactions" target-entity="Reaction" mapped-by="user"/>
+    <one-to-many field="notes" target-entity="pbgroupeu\gettingnote_eu\Entity\Note" mapped-by="user"/>
+    <field name="roles" type="json" column="roles" nullable="true"/>
+  </entity>
+</doctrine-mapping>

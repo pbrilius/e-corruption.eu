@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="pbgroupeu\stacer_eu\Entity\Reaction" table="reaction">
+    <indexes>
+      <index name="payment" columns="payment"/>
+      <index name="user" columns="user"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="reaction" type="json" column="reaction" nullable="false"/>
+    <many-to-one field="payment" target-entity="pbgroupeu\stacer_eu\Entity\Payment" fetch="LAZY" inversed-by="reactions">
+      <join-columns>
+        <join-column name="payment" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="pbgroupeu\stacer_eu\Entity\User" fetch="LAZY" inversed-by="reactions">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

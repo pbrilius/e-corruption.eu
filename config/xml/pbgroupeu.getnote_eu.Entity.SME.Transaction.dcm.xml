@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="pbgroupeu\getnote_eu\Entity\SME\Transaction" table="transaction">
+    <indexes>
+      <index name="membership" columns="membership"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="total" type="decimal" column="total" precision="5" scale="2" nullable="false"/>
+    <field name="datecreated" type="datetime" column="dateCreated" nullable="false"/>
+    <field name="dateupdated" type="datetime" column="dateUpdated" nullable="true"/>
+    <one-to-one field="membership" target-entity="pbgroupeu\getnote_eu\Entity\SME\Membership" fetch="LAZY" inversed-by="transaction">
+      <join-columns>
+        <join-column name="membership" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <lifecycle-callbacks>
+        <lifecycle-callback type="preUpdate" method="setDateOnPreUpdate"/>
+        <lifecycle-callback type="prePersist" method="setDateOnPreInsert"/>
+    </lifecycle-callbacks>
+  </entity>
+</doctrine-mapping>

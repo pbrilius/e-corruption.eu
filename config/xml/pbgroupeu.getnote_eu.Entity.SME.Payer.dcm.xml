@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="pbgroupeu\getnote_eu\Entity\SME\Payer" table="payer">
+    <indexes>
+      <index name="transaction" columns="transaction"/>
+      <index name="user" columns="user"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="datecreated" type="datetime" column="dateCreated" nullable="false"/>
+    <field name="dateupdated" type="datetime" column="dateUpdated" nullable="true"/>
+    <one-to-one field="user" target-entity="pbgroupeu\stacer_eu\Entity\User" fetch="LAZY">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="transaction" target-entity="pbgroupeu\getnote_eu\Entity\SME\Transaction" fetch="LAZY">
+      <join-columns>
+        <join-column name="transaction" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <lifecycle-callbacks>
+      <lifecycle-callback type="preUpdate" method="setDateOnPreUpdate"/>
+      <lifecycle-callback type="prePersist" method="setDateOnPreInsert"/>
+    </lifecycle-callbacks>
+  </entity>
+</doctrine-mapping>

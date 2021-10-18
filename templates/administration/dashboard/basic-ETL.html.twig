@@ -1,0 +1,12 @@
+{% extends '@shared/dashboard/generic.html.twig' %}
+
+{% block dashboard %}
+<div class='row'>
+  <div class="col col-6 col-md-6 col-sm-12" id="totalUsers"><total-users></total-users></div>
+  <div class="col col-6 col-md-6 col-sm-12" id="totalLoans"><total-loans></total-loans></div>
+</div>
+<div class='row'>
+  <div class="col col-6 col-md-6 col-sm-12" id="totalPayments"><total-payments></total-payments></div>
+  <div class="col col-6 col-md-6 col-dm-12" id="totalBots"><total-audit-bots></total-audit-bots></div>
+</div>
+{% endblock %}

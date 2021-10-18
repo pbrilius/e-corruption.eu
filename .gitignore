@@ -1,0 +1,30 @@
+# Base applicaation
+vendor/
+log/
+proxy/
+.env
+
+# Templates
+cache/
+
+# NPM frontend
+node_modules/
+
+# Webpack
+exposure/dist/main.js
+exposure/dist/master.css
+exposure/dist/user.js
+exposure/dist/administrator.js
+
+# ORM migrations
+migrations-db.php
+
+# Unit drilling
+.phpunit.cache/
+
+# Documentation
+docs/
+.phpdoc/
+
+# Temporal cognition - recognized Doctrine ORM CLI processing
+tmp/

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="pbgroupeu\stacer_eu\Entity\Audit" table="audit" repository-class="pbgroupeu\stacer_eu\Repository\AuditRepository">
+    <indexes>
+      <index name="loan" columns="loan"/>
+      <index name="payer" columns="payer"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="label" columns="label"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="label" type="string" column="label" length="32" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <one-to-one field="loan" target-entity="pbgroupeu\stacer_eu\Entity\Loan" fetch="LAZY" inversed-by="audit">
+      <join-columns>
+        <join-column name="loan" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="payer" target-entity="pbgroupeu\stacer_eu\Entity\User" fetch="LAZY" inversed-by="payerAudit">
+      <join-columns>
+        <join-column name="payer" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

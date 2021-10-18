@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="pbgroupeu\stacer_eu\Entity\Payment" table="payment" repository-class="pbgroupeu\stacer_eu\Repository\PaymentRepository">
+    <indexes>
+      <index name="loan" columns="loan"/>
+      <index name="user" columns="user"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="amount" type="decimal" column="amount" precision="5" scale="2" nullable="false"/>
+    <field name="dateSubmitted" type="date" column="date_submitted" nullable="false"/>
+    <many-to-one field="loan" target-entity="pbgroupeu\stacer_eu\Entity\Loan" fetch="LAZY" inversed-by="payments">
+      <join-columns>
+        <join-column name="loan" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="pbgroupeu\stacer_eu\Entity\User" fetch="LAZY" inversed-by="debtRepayments">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <one-to-many field="reactions" target-entity="Reaction" mapped-by="payment"/>
+  </entity>
+</doctrine-mapping>

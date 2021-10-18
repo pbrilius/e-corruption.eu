@@ -1,0 +1,51 @@
+{
+  "name": "mvc-orm-fp",
+  "version": "1.0.0",
+  "description": "A small scale - based on _Composer_ dependencies - **MVC - ORM** application project. It can be used on low-intensity resources consumption _PHP_ _e-benchmarks_ inferred environments like concerns of _e-commerce_ & _e-loans_.",
+  "private": true,
+  "watch": {
+    "dev": [
+      "src/index.js",
+      "components/*.svelte",
+      "components/administration/Dashboard/basic-ETL/*.svelte",
+      "components/administration/Dashboard/basic-ETL/*.js",
+      "scss/custom.scss"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx webpack --config webpack.config.js",
+    "watch": "npm-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/pbrilius/c2c-mvc-pbgroupeu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/pbrilius/c2c-mvc-pbgroupeu/issues"
+  },
+  "homepage": "https://gitlab.com/pbrilius/c2c-mvc-pbgroupeu#readme",
+  "devDependencies": {
+    "npm-watch": "^0.11.0",
+    "webpack": "^5.49.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.10.1",
+    "bootstrap": "^5.1.0",
+    "css-loader": "^6.2.0",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^2.2.0",
+    "popper.js": "^1.16.1",
+    "postcss-loader": "^6.1.1",
+    "sass": "^1.38.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "svelte": "^3.42.1",
+    "svelte-loader": "^3.1.2"
+  }
+}

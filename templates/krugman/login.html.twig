@@ -1,0 +1,25 @@
+{% extends '@shared/base.html.twig' %}
+
+{% block title %}
+    Login form
+{% endblock %}
+
+{% block content %}
+  <h2>Login form</h2>
+  <form action="/index.php/security/process-login" method="post">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="hash" class="form-label">Password</label>
+      <input type="password" name="hash" class="form-control" id="hash">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="session">
+      <label class="form-check-label" for="session">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

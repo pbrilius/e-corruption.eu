@@ -1,0 +1,15 @@
+{% extends '@shared/base.html.twig' %}
+
+{% block title %}User - basic dashboard{% endblock %}
+
+{% block content %}
+  {{ parent() }}
+  <h4>Basics</h4>
+  {% include('@user/dashboard/basic-ETL.html.twig') %}
+{% endblock %}
+
+{% block scripts %}
+  {{ parent() }}
+  <script type="text/javascript" src="/dist/user.js">
+  </script>
+{% endblock %}
