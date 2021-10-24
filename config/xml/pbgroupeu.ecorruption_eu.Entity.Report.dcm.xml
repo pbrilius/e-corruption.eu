@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="pbgroupeu\ecorruption_eu\Entity\Report" table="report">
+    <indexes>
+      <index name="incident" columns="incident"/>
+      <index name="institution" columns="institution"/>
+      <index name="user" columns="user"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="incident" target-entity="pbgroupeu\ecorruption_eu\Entity\Incident" fetch="LAZY">
+      <join-columns>
+        <join-column name="incident" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="institution" target-entity="pbgroupeu\ecorruption_eu\Entity\Institution" fetch="LAZY">
+      <join-columns>
+        <join-column name="institution" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="pbgroupeu\ecorruption_eu\Entity\User" fetch="LAZY">
+      <join-columns>
+        <join-column name="user" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

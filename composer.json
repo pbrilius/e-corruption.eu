@@ -31,7 +31,8 @@
             "Pbrilius\\C2cMvcPbgroupeu\\": "src/",
             "pbgroupeu\\stacer_eu\\": "src/stacer_eu/",
             "pbgroupeu\\gettingnote_eu\\": "src/gettingnote_eu/",
-            "pbgroupeu\\getnote_eu\\": "src/getnote_eu/"
+            "pbgroupeu\\getnote_eu\\": "src/getnote_eu/",
+            "pbgroupeu\\ecorruption_eu\\": "src/e-ecorruption_eu/"
         }
     },
     "autoload-dev": {
@@ -39,7 +40,8 @@
             "Pbrilius\\C2cMvcPbgroupeu\\tests\\": "tests/",
             "pbgroupeu\\stacer_eu\\tests\\": "tests/stacer_eu",
             "pbgroupeu\\gettingnote_eu\\tests\\": "tests/gettingnote_eu",
-            "pbgroupeu\\getnote_eu\\tests\\": "tests/getnote_eu/"
+            "pbgroupeu\\getnote_eu\\tests\\": "tests/getnote_eu/",
+            "pbgroupeu\\ecorruption_eu\\tests\\": "tests/e-ecorruption_eu/"
         }
     },
     "authors": [
